@@ -1,6 +1,6 @@
 import react, { useState } from "react";
 import "./ExpenseForm.css";
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //states
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
@@ -17,15 +17,19 @@ const ExpenseForm = () => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    //creating object to save the data collected
     const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
+    //sending the data back up
+    props.onSaveExpenseData(expenseData);
+    //reseting the data with two-way binding
     console.log(expenseData);
-    setEnteredTitle('')
-    setEnteredAmount('')
-    setEnteredDate('')
+    setEnteredTitle("");
+    setEnteredAmount("");
+    setEnteredDate("");
   };
 
   const dateChangeHandler = (event) => {
@@ -37,7 +41,11 @@ const ExpenseForm = () => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
-          <input type="text" value={enteredTitle} onChange={titleChangeHandler} />
+          <input
+            type="text"
+            value={enteredTitle}
+            onChange={titleChangeHandler}
+          />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
