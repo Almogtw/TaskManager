@@ -20,7 +20,7 @@ const ExpenseForm = (props) => {
     //creating object to save the data collected
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
     //sending the data back up
