@@ -6,7 +6,7 @@ const intialExpenses = [
     id: "e1",
     title: "Car Insurance",
     amount: 295,
-    date: new Date(2021, 2, 28),
+    date: new Date(2021, 3, 28),
   },
   { id: "e2", title: "BBB", amount: 60, date: new Date(2021, 2, 28) },
   { id: "e3", title: "AC", amount: 40, date: new Date(2021, 2, 28) },
